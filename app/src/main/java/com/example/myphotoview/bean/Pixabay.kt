@@ -1,4 +1,4 @@
-package com.example.myphotoview
+package com.example.myphotoview.bean
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

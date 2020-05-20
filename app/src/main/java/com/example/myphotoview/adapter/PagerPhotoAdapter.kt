@@ -1,4 +1,4 @@
-package com.example.myphotoview
+package com.example.myphotoview.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myphotoview.R
+import com.example.myphotoview.bean.PhotoItem
 import kotlinx.android.synthetic.main.cell_photo.view.*
 
 class PagerPhotoAdapter: ListAdapter<PhotoItem, CellViewHolder>(DIFFCALLBANCK) {

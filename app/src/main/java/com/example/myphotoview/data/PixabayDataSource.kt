@@ -1,4 +1,4 @@
-package com.example.myphotoview
+package com.example.myphotoview.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -7,6 +7,9 @@ import androidx.paging.PageKeyedDataSource
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
+import com.example.myphotoview.bean.PhotoItem
+import com.example.myphotoview.bean.Pixabay
+import com.example.myphotoview.netutils.VolleySinglerton
 import com.google.gson.Gson
 
 enum class NetWorkStatus {

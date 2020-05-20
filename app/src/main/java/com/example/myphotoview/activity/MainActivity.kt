@@ -1,9 +1,10 @@
-package com.example.myphotoview
+package com.example.myphotoview.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.myphotoview.R
 
 class MainActivity : AppCompatActivity() {
 

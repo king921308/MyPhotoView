@@ -1,4 +1,4 @@
-package com.example.myphotoview
+package com.example.myphotoview.adapter
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -15,6 +15,10 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.myphotoview.viewmodel.GalleryViewModel
+import com.example.myphotoview.R
+import com.example.myphotoview.bean.PhotoItem
+import com.example.myphotoview.data.NetWorkStatus
 import kotlinx.android.synthetic.main.cell_footer.view.*
 import kotlinx.android.synthetic.main.cell_gallery.view.*
 
@@ -69,7 +73,9 @@ class GalleryAdapter(private val galleryViewModel: GalleryViewModel) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.cell_gallery -> CellViewHolder.newViewHolder(parent).also { holder ->
+            R.layout.cell_gallery -> CellViewHolder.newViewHolder(
+                parent
+            ).also { holder ->
                 holder.itemView.setOnClickListener {
                     Bundle().apply {
                         putParcelableArrayList("PHOTO", ArrayList(currentList!!))
@@ -79,7 +85,9 @@ class GalleryAdapter(private val galleryViewModel: GalleryViewModel) :
                     }
                 }
             }
-            else -> FootViewHolder.newViewHolder(parent).also {
+            else -> FootViewHolder.newViewHolder(
+                parent
+            ).also {
                 it.itemView.setOnClickListener {
                     galleryViewModel.retry()
                 }

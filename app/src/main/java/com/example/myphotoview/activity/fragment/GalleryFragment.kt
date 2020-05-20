@@ -1,22 +1,24 @@
-package com.example.myphotoview
+package com.example.myphotoview.activity.fragment
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.*
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.fragment_pager_photo.*
+import com.example.myphotoview.R
+import com.example.myphotoview.adapter.GalleryAdapter
+import com.example.myphotoview.data.NetWorkStatus
+import com.example.myphotoview.viewmodel.GalleryViewModel
 import kotlinx.android.synthetic.main.gallery_fragment.*
 
 
 class GalleryFragment : Fragment() {
     private val galleryViewModel by viewModels<GalleryViewModel>()
     companion object {
-        fun newInstance() = GalleryFragment()
+        fun newInstance() =
+            GalleryFragment()
     }
 
     override fun onCreateView(
@@ -29,7 +31,8 @@ class GalleryFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
-        val galleryAdapter:GalleryAdapter= GalleryAdapter(galleryViewModel)
+        val galleryAdapter: GalleryAdapter =
+            GalleryAdapter(galleryViewModel)
         recyclerView.apply {
             this.adapter=galleryAdapter
             layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
@@ -41,7 +44,7 @@ class GalleryFragment : Fragment() {
 
         galleryViewModel.netWorkStatus.observe(viewLifecycleOwner, Observer {
             galleryAdapter.updateNetWorkStatus(it)
-            swipeView.isRefreshing=it==NetWorkStatus.INITIAL_LOADING
+            swipeView.isRefreshing=it== NetWorkStatus.INITIAL_LOADING
         })
 
         swipeView.setOnRefreshListener {
@@ -56,11 +59,11 @@ class GalleryFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menuRefresh->{
+            R.id.menuRefresh ->{
                 swipeView?.isRefreshing=true
                 Handler().postDelayed({galleryViewModel.resetQuery()},1000)
             }
-            R.id.tryMenu->{
+            R.id.tryMenu ->{
                 galleryViewModel.retry()
             }
         }

@@ -1,4 +1,4 @@
-package com.example.myphotoview
+package com.example.myphotoview.activity.fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -16,10 +16,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myphotoview.R
+import com.example.myphotoview.adapter.CellViewHolder
+import com.example.myphotoview.adapter.PagerPhotoAdapter
+import com.example.myphotoview.bean.PhotoItem
 import kotlinx.android.synthetic.main.cell_photo.view.*
 import kotlinx.android.synthetic.main.fragment_pager_photo.*
 import kotlinx.coroutines.Dispatchers
